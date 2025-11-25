@@ -1,0 +1,20 @@
+{
+  "name": "learnhub-mongodb",
+  "version": "1.0.0",
+  "description": "Script de inserción de datos para LearnHub",
+  "main": "insertar_datos.js",
+  "scripts": {
+    "start": "node insertar_datos.js",
+    "insert": "node insertar_datos.js"
+  },
+  "dependencies": {
+    "mongodb": "^6.21.0"
+  },
+  "keywords": [
+    "mongodb",
+    "learnhub",
+    "bigdata"
+  ],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,110 @@
+# Dependencias
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# package-lock.json se mantiene para versiones consistentes
+yarn.lock
+
+# Archivos de configuración sensibles
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+config.json
+credentials.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Sistema Operativo
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDEs y Editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+.project
+.classpath
+.settings/
+*.iml
+
+# Archivos temporales
+*.tmp
+*.temp
+*.bak
+*.backup
+*.cache
+
+# Archivos de MongoDB
+*.bson
+dump/
+*.mongo
+
+# Archivos de conexión con credenciales (scripts con contraseñas hardcodeadas)
+# conectar.sh (si contiene credenciales)
+
+# Archivos compilados
+dist/
+build/
+*.o
+*.exe
+
+# Coverage reports
+coverage/
+.nyc_output/
+*.lcov
+
+# Archivos de prueba
+test-results/
+playwright-report/
+.screenshots/
+
+# Archivos de sistema macOS específicos
+.AppleDouble
+.LSOverride
+Icon
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Archivos de sistema Windows específicos
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Archivos de sistema Linux específicos
+*~
+.directory
+.Trash-*
+
+# Archivos de respaldo
+*.orig
+*.save
+

@@ -52,6 +52,9 @@ Thumbs.db
 *.bak
 *.backup
 *.cache
+*.crswap
+*.swp
+*.swo
 
 # Archivos de MongoDB
 *.bson

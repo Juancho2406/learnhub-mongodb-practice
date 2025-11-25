@@ -8,7 +8,10 @@ Este proyecto contiene el caso de uso completo **LearnHub**, una plataforma de c
 - [Conexión a MongoDB](#-conexión-a-mongodb)
 - [Inserción de Datos](#-inserción-de-datos)
 - [Ejecutar Consultas](#-ejecutar-consultas)
+- [Generar Dashboard HTML](#-generar-dashboard-html)
 - [Estructura del Proyecto](#-estructura-del-proyecto)
+- [Diagrama de Base de Datos](#-diagrama-de-base-de-datos)
+- [Documentación Completa](#-documentación-completa)
 
 ---
 
@@ -275,17 +278,23 @@ mongosh "mongodb+srv://learnhub-mongodb-practi.ooamqa8.mongodb.net/LearnHubDB" -
 learnhub-mongodb-practice/
 │
 ├── README.md                          # Este archivo
+├── DOCUMENTACION.md                   # Documentación completa del proyecto
 ├── package.json                       # Configuración de Node.js
 ├── insertar_datos.js                  # Script de inserción automática (Node.js)
-├── codigo_mongodb_learnhub.js        # Script completo para mongosh
+├── generar_dashboard.js               # Generador de dashboard HTML estático
+├── diagrama_bd.drawio                 # Diagrama del esquema de BD (draw.io)
 │
 ├── config/                            # Configuración de conexión
 │   └── connection.js                  # Módulo de conexión a MongoDB
 │
-└── consultas/                         # Carpeta con consultas ejecutables
-    ├── 01_operaciones_crud_basicas.js        # INSERT, SELECT, UPDATE, DELETE
-    ├── 02_consultas_filtros_operadores.js    # Filtros y operadores
-    └── 03_agregaciones_estadisticas.js       # COUNT, SUM, AVG, MIN, MAX
+├── consultas/                         # Carpeta con consultas ejecutables
+│   ├── 01_operaciones_crud_basicas.js        # INSERT, SELECT, UPDATE, DELETE
+│   ├── 02_consultas_filtros_operadores.js    # Filtros y operadores
+│   └── 03_agregaciones_estadisticas.js       # COUNT, SUM, AVG, MIN, MAX
+│
+└── docs/                              # Dashboard HTML estático (GitHub Pages)
+    ├── index.html                     # Dashboard generado (ejecutar generar_dashboard.js)
+    └── README.md                      # Instrucciones para GitHub Pages
 ```
 
 ---
@@ -412,6 +421,114 @@ Si tienes problemas:
 2. Revisa que todos los requisitos estén instalados
 3. Asegúrate de estar conectado a internet
 4. Verifica las credenciales de conexión
+
+---
+
+## 📊 Generar Dashboard HTML
+
+El proyecto incluye un generador de dashboard HTML estático que visualiza todos los resultados de las agregaciones con gráficos interactivos.
+
+### Generar el Dashboard
+
+```bash
+npm run dashboard
+```
+
+O directamente:
+
+```bash
+node generar_dashboard.js
+```
+
+### ¿Qué hace?
+
+1. ✅ Se conecta a MongoDB Atlas
+2. ✅ Recopila datos de todas las agregaciones
+3. ✅ Genera un archivo HTML estático completo en `docs/index.html`
+4. ✅ Incluye gráficos interactivos usando Chart.js
+5. ✅ Análisis narrativo de todos los resultados
+
+### Características del Dashboard
+
+- 📈 **9 gráficos interactivos** (barras, pastel, dona, líneas)
+- 📊 **Estadísticas generales** en tarjetas
+- 📋 **Tablas de datos** detalladas
+- 📝 **Análisis narrativo** de cada métrica
+- 🎨 **Diseño responsive** y moderno
+- 🌐 **100% estático** - Perfecto para GitHub Pages
+
+### Desplegar en GitHub Pages
+
+El dashboard generado está listo para GitHub Pages:
+
+1. **Genera el dashboard**:
+   ```bash
+   npm run dashboard
+   ```
+
+2. **Configura GitHub Pages**:
+   - Ve a Settings → Pages en tu repositorio
+   - Selecciona la carpeta `/docs` como fuente
+   - El dashboard estará disponible en: `https://TU_USUARIO.github.io/NOMBRE_REPO/`
+
+3. **Visualizar localmente**:
+   - Simplemente abre `docs/index.html` en tu navegador
+
+### Visualizaciones Incluidas
+
+- Cursos por Estado (gráfico de dona)
+- Cursos por Categoría (gráfico de barras)
+- Tiempo Total por Categoría (horas)
+- Precio Promedio por Categoría
+- Inscripciones por Estado
+- Ingresos por Estado de Inscripción
+- Top 10 Estudiantes por Progreso
+- Top 10 Cursos por Tasa de Finalización
+- Distribución de Calificaciones
+
+---
+
+## 🗺️ Diagrama de Base de Datos
+
+El proyecto incluye un diagrama del esquema de base de datos en formato draw.io.
+
+**Archivo**: `diagrama_bd.drawio`
+
+### Cómo abrirlo
+
+1. Ve a [app.diagrams.net](https://app.diagrams.net/) (anteriormente draw.io)
+2. Haz clic en "Abrir archivo existente"
+3. Selecciona `diagrama_bd.drawio`
+4. O arrastra el archivo directamente a la página
+
+### Contenido del Diagrama
+
+El diagrama muestra:
+- ✅ Las 5 colecciones (cursos, estudiantes, inscripciones, progreso, comentarios)
+- ✅ Todos los campos de cada colección con sus tipos
+- ✅ Claves primarias (PK) y foráneas (FK) marcadas
+- ✅ Relaciones entre colecciones
+- ✅ Diseño visual con colores diferenciados
+
+Puedes exportarlo como PNG, PDF o SVG para incluir en tu documentación.
+
+---
+
+## 📚 Documentación Completa
+
+Para documentación detallada sobre:
+
+- ✅ **Diseño de la base de datos**: Esquema completo con explicación de cada colección
+- ✅ **Explicación del código**: Análisis detallado de todas las consultas
+- ✅ **Análisis de resultados**: Interpretación de agregaciones y estadísticas
+
+Consulta el archivo: **[DOCUMENTACION.md](./DOCUMENTACION.md)**
+
+La documentación incluye:
+- Diseño del esquema de MongoDB con estructuras JSON
+- Explicación línea por línea del código de consultas
+- Análisis narrativo de todos los resultados de agregaciones
+- Implicaciones para Big Data y aplicaciones prácticas
 
 ---
 

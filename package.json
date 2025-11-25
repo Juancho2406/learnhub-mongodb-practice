@@ -5,7 +5,8 @@
   "main": "insertar_datos.js",
   "scripts": {
     "start": "node insertar_datos.js",
-    "insert": "node insertar_datos.js"
+    "insert": "node insertar_datos.js",
+    "dashboard": "node generar_dashboard.js"
   },
   "dependencies": {
     "mongodb": "^6.21.0"

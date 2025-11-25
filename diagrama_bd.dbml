@@ -1,0 +1,87 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+// Base de Datos: LearnHubDB
+// LEARNHUB - DISEÑO DE BASE DE DATOS MONGODB
+
+Table cursos {
+  curso_id varchar [primary key]
+  titulo varchar
+  descripcion text
+  instructor varchar
+  categoria varchar
+  nivel varchar
+  duracion_horas integer
+  precio decimal
+  fecha_creacion timestamp
+  estado varchar
+  calificacion_promedio varchar
+  numero_inscripciones integer
+  etiquetas text [note: 'Array de String']
+  requisitos text [note: 'Array de String']
+}
+
+Table estudiantes {
+  estudiante_id varchar [primary key]
+  nombre varchar
+  apellido varchar
+  email varchar [unique]
+  fecha_nacimiento timestamp
+  pais varchar
+  ciudad varchar
+  genero varchar
+  fecha_registro timestamp
+  estado_cuenta varchar
+  nivel_educacion varchar
+  intereses text [note: 'Array de String']
+}
+
+Table inscripciones {
+  inscripcion_id varchar [primary key]
+  curso_id varchar [not null]
+  estudiante_id varchar [not null]
+  fecha_inscripcion timestamp
+  fecha_inicio timestamp
+  fecha_fin timestamp [null]
+  estado varchar
+  metodo_pago varchar
+  monto_pagado decimal
+  certificado_obtenido boolean
+}
+
+Table progreso {
+  progreso_id varchar [primary key]
+  inscripcion_id varchar [not null]
+  curso_id varchar [not null]
+  estudiante_id varchar [not null]
+  porcentaje_completado decimal
+  lecciones_completadas integer
+  total_lecciones integer
+  tiempo_estudiado_horas decimal
+  ultima_actividad timestamp
+  calificacion_final decimal [null]
+  fecha_completado timestamp [null]
+}
+
+Table comentarios {
+  comentario_id varchar [primary key]
+  curso_id varchar [not null]
+  estudiante_id varchar [not null]
+  texto text
+  calificacion integer
+  fecha_comentario timestamp
+  moderado boolean
+  util integer
+  reportado boolean
+}
+
+// Relaciones
+Ref: inscripciones.curso_id > cursos.curso_id // many-to-one
+Ref: inscripciones.estudiante_id > estudiantes.estudiante_id // many-to-one
+
+Ref: progreso.inscripcion_id > inscripciones.inscripcion_id // many-to-one
+Ref: progreso.curso_id > cursos.curso_id // many-to-one
+Ref: progreso.estudiante_id > estudiantes.estudiante_id // many-to-one
+
+Ref: comentarios.curso_id > cursos.curso_id // many-to-one
+Ref: comentarios.estudiante_id > estudiantes.estudiante_id // many-to-one
+
